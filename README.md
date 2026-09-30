@@ -3,7 +3,7 @@
 ## Project Name
 Restaurant Management System — OOP Final Project
 
-## Team Members
+## Developed By
 Yomn Osama Ibrahim
 
 ## Project Description
@@ -86,9 +86,6 @@ business-rule violations, 2 edge cases). All 10 currently pass.
 
 ## Screenshots
 
-<img src="<img width="1920" height="1020" alt="Screenshot 2026-09-30 194838" src="https://github.com/user-attachments/assets/f5630bde-2b48-44dd-9941-5469020c3b5f" />
-" width="600">
-<img src="![Uploading Screenshot 2026-09-30 194858.png…]()
-" width="600">
-<img src="![Uploading Screenshot 2026-09-30 195714.png…]()
-.png" width="600">
+<img width="1920" height="1020" alt="Screenshot 2026-09-30 194838" src="https://github.com/user-attachments/assets/f5630bde-2b48-44dd-9941-5469020c3b5f" />
+<img width="1920" height="1020" alt="Screenshot 2026-09-30 194858" src="https://github.com/user-attachments/assets/f3a24a61-f42c-4f69-815d-bb8ecabba0cd" />
+<img width="1920" height="1020" alt="Screenshot 2026-09-30 195714" src="https://github.com/user-attachments/assets/c8cb2d1c-11af-468c-b837-9c875da6993b" />
