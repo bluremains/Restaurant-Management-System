@@ -1,0 +1,15 @@
+{
+    "name": "My Restaurant",
+    "next_ids": {
+        "menu": 1,
+        "table": 1,
+        "customer": 1,
+        "order": 1,
+        "payment": 1
+    },
+    "menu": [],
+    "tables": [],
+    "customers": [],
+    "orders": [],
+    "payments": []
+}

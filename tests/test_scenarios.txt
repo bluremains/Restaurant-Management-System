@@ -1,0 +1,65 @@
+RESTAURANT MANAGEMENT SYSTEM - TEST SCENARIOS
+===============================================
+These scenarios are also implemented as automated pytest tests in
+test_scenarios.py. Run them with:  pytest tests/test_scenarios.py -v
+
+--- SUCCESSFUL SCENARIOS (3) ---
+
+1. Add a menu item
+   Steps: restaurant.add_menu_item("Margherita Pizza", "Main", 9.99)
+   Expected: Item is stored in restaurant.menu with the given name,
+             category and price, and is available by default.
+
+2. Full order flow (create -> add items -> checkout)
+   Steps: create a table, create an order for it, add two menu items,
+          check out the order.
+   Expected: Order status becomes "Paid", a Payment record is created
+             with the correct total, and the table becomes "Available"
+             again.
+
+3. Search customers by keyword
+   Steps: add customer "Sara Ahmed", then search_customers("sara").
+   Expected: The search returns a list containing that customer
+             (case-insensitive, partial match).
+
+--- INVALID INPUT SCENARIOS (3) ---
+
+4. Add a menu item with a negative price
+   Steps: restaurant.add_menu_item("Bad Item", "Main", -5)
+   Expected: ValidationError is raised. No item is added.
+
+5. Add an order item with quantity zero
+   Steps: create an order, then add_item_to_order(order_id, item_id, 0)
+   Expected: InvalidQuantityError is raised.
+
+6. Create an order for a table that does not exist
+   Steps: restaurant.create_order(table_id=999)
+   Expected: TableNotFoundError is raised.
+
+--- BUSINESS-RULE VIOLATIONS (2) ---
+
+7. Assign a second order to an already-occupied table
+   Steps: create an order for table 1 (occupies it), then try to create
+          a second order for the same table.
+   Expected: TableOccupiedError is raised. The table stays linked to the
+             first order.
+
+8. Check out an order with no items
+   Steps: create an order and immediately call checkout_order() without
+          adding any items.
+   Expected: EmptyOrderError is raised. The order stays "Open".
+
+--- EDGE CASES (2) ---
+
+9. Adding the same menu item twice to one order
+   Steps: add_item_to_order(order_id, item_id=1, quantity=2), then
+          add_item_to_order(order_id, item_id=1, quantity=3) again.
+   Expected: The order has a single line for that item with quantity 5,
+             not two separate lines.
+
+10. Cancelling an order frees its table, and a 100%-edge percentage
+    discount reduces the order total to 0.
+    Steps: create an order, add an item, apply PercentageDiscount(100),
+           check calculate_total() == 0; then, in a separate order,
+           call cancel_order() and confirm the table becomes Available.
+    Expected: Both behaviours hold exactly as described.
