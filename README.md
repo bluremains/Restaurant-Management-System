@@ -76,7 +76,7 @@ python main.py
 To run the automated tests:
 ```bash
 pip install pytest
-pytest tests/test_scenarios.py -v
+python -m pytest tests/test_scenarios.py -v
 ```
 
 ## Test Scenarios
